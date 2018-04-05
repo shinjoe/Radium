@@ -1,4 +1,5 @@
 mod fileio;
+mod vector;
 
 fn main() {
 
