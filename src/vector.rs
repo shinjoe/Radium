@@ -1,4 +1,5 @@
 use std::ops::Add;
+use std::ops::Sub;
 
 #[derive(Debug)]
 pub struct Vec3 {
@@ -26,6 +27,10 @@ impl Vec3 {
         Vec3 {
             e: [arr[0] as f32, arr[1] as f32, arr[2] as f32]
         }
+    }
+
+    pub fn dot(left: Vec3, right: Vec3) -> f32 {
+        left.e[0] * right.e[0] + left.e[1] * right.e[1] + left.e[2] * right.e[2]
     }
 
     pub fn x(&self) -> f32 {
@@ -59,6 +64,16 @@ impl Add for Vec3 {
     fn add(self, other: Vec3) -> Vec3 {
         Vec3 {
             e: [self.e[0] + other.e[0], self.e[1] + other.e[1], self.e[2] + other.e[2]]
+        }
+    }
+}
+
+impl Sub for Vec3 {
+    type Output = Vec3;
+
+    fn sub(self, other: Vec3) -> Vec3 {
+        Vec3 {
+            e: [self.e[0] - other.e[0], self.e[1] - other.e[1], self.e[2] - other.e[2]]
         }
     }
 }
