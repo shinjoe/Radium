@@ -1,5 +1,5 @@
 use std::f32;
-use std::ops::{Add, Sub};
+use std::ops::{Add, AddAssign, Sub, SubAssign};
 
 #[derive(Debug)]
 pub struct Vec3 {
@@ -72,6 +72,14 @@ impl Add for Vec3 {
     }
 }
 
+impl AddAssign for Vec3 {
+    fn add_assign(&mut self, other: Vec3) {
+        self.e[0] += other.e[0];
+        self.e[1] += other.e[1];
+        self.e[2] += other.e[2];
+    }
+}
+
 impl Sub for Vec3 {
     type Output = Vec3;
 
@@ -81,3 +89,16 @@ impl Sub for Vec3 {
         }
     }
 }
+
+impl SubAssign for Vec3 {
+    fn sub_assign(&mut self, other: Vec3) {
+        self.e[0] -= other.e[0];
+        self.e[1] -= other.e[1];
+        self.e[2] -= other.e[2];
+    }
+
+}
+
+
+
+
