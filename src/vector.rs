@@ -1,5 +1,5 @@
-use std::ops::Add;
-use std::ops::Sub;
+use std::f32;
+use std::ops::{Add, Sub};
 
 #[derive(Debug)]
 pub struct Vec3 {
@@ -31,6 +31,10 @@ impl Vec3 {
 
     pub fn dot(left: Vec3, right: Vec3) -> f32 {
         left.e[0] * right.e[0] + left.e[1] * right.e[1] + left.e[2] * right.e[2]
+    }
+
+    pub fn magnitude(&self) -> f32 {
+        (self.e[0] * self.e[0] + self.e[1] * self.e[1] + self.e[2] * self.e[2]).sqrt()
     }
 
     pub fn x(&self) -> f32 {
