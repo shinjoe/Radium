@@ -1,12 +1,13 @@
 use std::f32;
 use std::fmt;
-use std::ops::{Add, AddAssign, Sub, SubAssign};
+use std::ops::{Add, AddAssign, Index, Sub, SubAssign};
 
 #[derive(Debug)]
 pub struct Vec3 {
     e: [f32; 3],
 }
 
+#[allow(dead_code)]
 impl Vec3 {
     pub fn zero() -> Vec3 {
         Vec3 { e: [0.0, 0.0, 0.0] }
@@ -90,6 +91,19 @@ impl AddAssign for Vec3 {
         self.e[0] += other.e[0];
         self.e[1] += other.e[1];
         self.e[2] += other.e[2];
+    }
+}
+
+impl Index<usize> for Vec3 {
+    type Output = f32;
+
+    fn index(&self, i: usize) -> &f32 {
+        match i {
+            0 => &self.e[0],
+            1 => &self.e[1],
+            2 => &self.e[2],
+            _ => panic!("Unexpected vector index: {}", i)
+        }
     }
 }
 
