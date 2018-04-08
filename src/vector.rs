@@ -1,4 +1,5 @@
 use std::f32;
+use std::fmt;
 use std::ops::{Add, AddAssign, Sub, SubAssign};
 
 #[derive(Debug)]
@@ -96,7 +97,12 @@ impl SubAssign for Vec3 {
         self.e[1] -= other.e[1];
         self.e[2] -= other.e[2];
     }
+}
 
+impl fmt::Display for Vec3 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "[{}, {}, {}]", self.e[0], self.e[1], self.e[2])
+    }
 }
 
 
