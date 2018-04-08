@@ -34,6 +34,18 @@ impl Vec3 {
         left.e[0] * right.e[0] + left.e[1] * right.e[1] + left.e[2] * right.e[2]
     }
 
+    pub fn cross(left: Vec3, right: Vec3) -> Vec3 {
+        let a = left.e[0];
+        let b = left.e[1];
+        let c = left.e[2];
+        let d = right.e[0];
+        let e = right.e[1];
+        let f = right.e[2];
+        Vec3 {
+            e: [b * f - c * e, c * d - a * f, a * e - b * d]
+        }
+    }
+
     pub fn magnitude(&self) -> f32 {
         (self.e[0] * self.e[0] + self.e[1] * self.e[1] + self.e[2] * self.e[2]).sqrt()
     }
