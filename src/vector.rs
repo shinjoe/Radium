@@ -1,8 +1,8 @@
 use std::f32;
 use std::fmt;
-use std::ops::{Add, AddAssign, Index, Sub, SubAssign};
+use std::ops::{Add, AddAssign, Index, Mul, Sub, SubAssign};
 
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub struct Vec3 {
     e: [f32; 3],
 }
@@ -103,6 +103,16 @@ impl Index<usize> for Vec3 {
             1 => &self.e[1],
             2 => &self.e[2],
             _ => panic!("Unexpected vector index: {}", i)
+        }
+    }
+}
+
+impl Mul<f32> for Vec3 {
+    type Output = Vec3;
+
+    fn mul(self, val: f32) -> Vec3 {
+        Vec3 {
+            e: [self.e[0] * val, self.e[1] * val, self.e[2] * val]
         }
     }
 }
