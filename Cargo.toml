@@ -3,4 +3,12 @@ name = "radium"
 version = "0.1.0"
 authors = ["shinjoe"]
 
+[lib]
+name = "radium"
+path = "src/lib.rs"
+
+[[bin]]
+name = "radium"
+path = "src/main.rs"
+
 [dependencies]

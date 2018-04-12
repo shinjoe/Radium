@@ -2,7 +2,7 @@ use std::f32;
 use std::fmt;
 use std::ops::{Add, AddAssign, Index, Mul, Sub, SubAssign};
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Vec3 {
     e: [f32; 3],
 }

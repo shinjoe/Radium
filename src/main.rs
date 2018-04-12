@@ -1,8 +1,7 @@
+extern crate radium;
 mod fileio;
-mod vector;
-mod ray;
 
-use vector::Vec3;
+use radium::vector::Vec3;
 
 fn main() {
 
